@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INSPINIA | Wizards</title>
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <link href="css/plugins/chosen/chosen.css" rel="stylesheet">
+
+    <link href="css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+    <link href="css/plugins/cropper/cropper.min.css" rel="stylesheet">
+
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+
+    <link href="css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <link href="css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+    <link href="css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
+
+    <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+<style>
+/* Some common styles..
+Warning! this first div styles can affect all your div styles! It is for demonstration purposes only!
+You can append this div's style to [class*="badger"] section if you want this style by default for all badgers
+------------------------- */
+.ruler {
+ position: relative;
+ width: 90%;
+ margin: 15px 10px;
+ height: 5px;
+}
+.ruler .cm,
+.ruler .mm {
+ position: absolute;
+ border-left: 1px solid #555;
+ height: 14px;
+ width: 10%;
+}
+.ruler .cm:after {
+ position: absolute;
+ bottom: -15px;
+ font: 11px/1 sans-serif;
+}
+.ruler .mm {
+ height: 5px;
+}
+.ruler .mm:nth-of-type(5) {
+ height: 10px;
+}
+.ruler .cm:nth-of-type(1) {
+ left: 0%;
+}
+.ruler .cm:nth-of-type(1):after {
+ content: "0";
+}
+.ruler .cm:nth-of-type(2) {
+ left: 10%;
+}
+.ruler .cm:nth-of-type(2):after {
+ content: "1";
+}
+.ruler .cm:nth-of-type(3) {
+ left: 20%;
+}
+.ruler .cm:nth-of-type(3):after {
+ content: "2";
+}
+.ruler .cm:nth-of-type(4) {
+ left: 30%;
+}
+.ruler .cm:nth-of-type(4):after {
+ content: "3";
+}
+.ruler .cm:nth-of-type(5) {
+ left: 40%;
+}
+.ruler .cm:nth-of-type(5):after {
+ content: "4";
+}
+.ruler .cm:nth-of-type(6) {
+ left: 50%;
+}
+.ruler .cm:nth-of-type(6):after {
+ content: "5";
+}
+.ruler .cm:nth-of-type(7) {
+ left: 60%;
+}
+.ruler .cm:nth-of-type(7):after {
+ content: "6";
+}
+.ruler .cm:nth-of-type(8) {
+ left: 70%;
+}
+.ruler .cm:nth-of-type(8):after {
+ content: "7";
+}
+.ruler .cm:nth-of-type(9) {
+ left: 80%;
+}
+.ruler .cm:nth-of-type(9):after {
+ content: "8";
+}
+.ruler .cm:nth-of-type(10) {
+ left: 90%;
+}
+.ruler .cm:nth-of-type(10):after {
+ content: "9";
+}
+.ruler .cm:nth-of-type(11) {
+ left: 100%;
+}
+.ruler .cm:nth-of-type(11):after {
+ content: "10";
+}
+.ruler .mm:nth-of-type(1) {
+ left: 10%;
+}
+.ruler .mm:nth-of-type(2) {
+ left: 20%;
+}
+.ruler .mm:nth-of-type(3) {
+ left: 30%;
+}
+.ruler .mm:nth-of-type(4) {
+ left: 40%;
+}
+.ruler .mm:nth-of-type(5) {
+ left: 50%;
+}
+.ruler .mm:nth-of-type(6) {
+ left: 60%;
+}
+.ruler .mm:nth-of-type(7) {
+ left: 70%;
+}
+.ruler .mm:nth-of-type(8) {
+ left: 80%;
+}
+.ruler .mm:nth-of-type(9) {
+ left: 90%;
+}
+.ruler .mm:nth-of-type(10) {
+ left: 100%;
+}
+#mentionme{  
+  text-align:center;
+  margin-top:10%;
+}
+
+
+.cc-selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;         
+            
+}
+
+.cc-selector-2 input{
+    position:absolute;
+    z-index:999;
+}
+
+.noPain{background-image:url(img/pain/1.png);}
+.mildPain{background-image:url(img/pain/2.png);}
+.uncomfortable{background-image:url(img/pain/3.png);}
+.distressing{background-image:url(img/pain/4.png);}
+.intense{background-image:url(img/pain/5.png);}
+.excruciating{background-image:url(img/pain/6.png);}
+
+.cc-selector-2 input:active +.drinkcard-cc, .cc-selector input:active +.drinkcard-cc{opacity: .9;}
+.cc-selector-2 input:checked +.drinkcard-cc, .cc-selector input:checked +.drinkcard-cc{
+    -webkit-filter: none;
+       -moz-filter: none;
+            filter: none;
+}
+.drinkcard-cc{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:50px;height:30px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+       -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.drinkcard-cc:hover{
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+       -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+}
+
+/* Extras */
+a:visited{color:#888}
+a{color:#444;text-decoration:none;}
+p{margin-bottom:.3em;}
+/* Badger
+------------------------- */
+
+[class*="badger"] {
+    position: relative;
+    margin: 5px 0;
+    padding: 39px 19px 14px;
+    background: #f3f3f4;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+[class*="badger"]:after {
+    content: attr(data-badger);
+    position: absolute;
+    top: 0;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #999;
+    color: #fff;
+}
+
+.badger-left:after {
+    left: 0;
+    border-radius: 6px 0 6px 0;
+}
+
+.badger-right:after {
+    right: 0;
+    border-radius: 0 6px 0 6px;
+}
+
+.badger-danger:after {
+    background: #d9534f;
+}
+
+.badger-warning:after {
+    background: #f0ad4e;
+}
+
+.badger-success:after {
+    background: #5cb85c;
+}
+
+.badger-info:after {
+    background: #5bc0de;
+}
+
+.badger-inverse:after {
+    background: #222;
+}
+
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+
+.stepwizard-row {
+    display: table-row;
+}
+
+.stepwizard {
+    display: table;
+    width: 100%;
+    position: relative;
+}
+
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+
+}
+
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+
+
+
+    .wizard > .content > .body {
+        position: relative;
+        width: 100% !important;
+    }
+    .flexy {
+        display: block;
+        width: 90%;
+        border: 1px solid #eee;
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    .avatar-zone {
+        /*! width: 140px; */
+        height: 200px;
+
+    }
+
+    .overlay-layer {
+        width: 180px;
+        height: 40px;
+        position: absolute;
+        margin-top: -40px;
+        opacity: 0.5;
+        background-color: #000000;
+        z-index: 0;
+        font-size: 15px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 40px;
+
+    }
+    .avatar-zone-sig {
+        width: 140px;
+        height: 92px;
+
+    }
+
+    .overlay-layer-sig {
+        width: 180px;
+        height: 40px;
+        position: absolute;
+        margin-top: -40px;
+        opacity: 0.5;
+        background-color: #000000;
+        z-index: 0;
+        font-size: 15px;
+        color: #FFFFFF;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .upload_btn {
+        position: absolute;
+        width: 200px;
+        height: 40px;
+        margin-top: -40px;
+        z-index: 10;
+        opacity: 0;
+    }
+
+    .red {
+        color: red
+    }
+
+    .pointer2 {
+        cursor: pointer;
+    }
+
+    .div-background {
+        background-color: #D9E0E7;
+        padding: 20px;
+        border-radius: 10px
+    }
+
+    .toggle-div {
+        display: none;
+        background-color: #FCF8E3;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .toggle-div-course {
+        display: none;
+        background-color: #FCF8E3;
+        padding: 10px;
+        border-radius: 10px;
+        width: 400px;
+    }
+
+    .toggle-div1 {
+        background-color: #FCF8E3;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .from_yes{
+        width: 110%;
+    }
+
+</style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+                    <ul class="nav metismenu" id="side-menu">
+                        <li class="nav-header">
+                            <div class="dropdown profile-element"> <span>
+                                    <img alt="image" class="img-circle" src="img/admin_small.png" />
+                                </span>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="dashboard_2.html#">
+                                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Admin</strong>
+                                        </span> <span class="text-muted text-xs block">Doctor <b class="caret"></b></span> </span> </a>
+                                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                    <li><a href="profile.html">Profile</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                   <!--  <li><a href="mailbox.html">Mailbox</a></li> -->
+                                    <li class="divider"></li>
+                                    <li><a href="login-resorce/index.html">Logout</a></li>
+                                </ul>
+                            </div>
+                            <div class="logo-element">
+                                BSMMU
+                            </div>
+                        </li>
+                                                <li class="active">
+                            <a href="dashboard_2.html"><i class="fa fa-th-large"></i> <span class="nav-label">Home</span> </a>
+                            <!-- <ul class="nav nav-second-level">                             
+                                <li class="active"><a href="dashboard_2.html">Dashboard</a></li>                                
+                            </ul> -->
+                        </li>
+                        <li>
+                            <a href="dashboard_2.html#"><i class="fa fa-diamond"></i> <span class="nav-label">Setup</span><span class="fa arrow"></a>
+                            <ul class="nav nav-second-level collapse">
+                             <li><a href="#">Doctor Setup</a></li>
+                                <!-- <li><a href="graph_flot.html">Flot Charts</a></li>
+                                <li><a href="graph_morris.html">Morris.js Charts</a></li>
+                                <li><a href="graph_rickshaw.html">Rickshaw Charts</a></li>
+                                <li><a href="graph_chartjs.html">Chart.js</a></li>
+                                <li><a href="graph_chartist.html">Chartist</a></li>
+                                <li><a href="graph_peity.html">Peity Charts</a></li>
+                                <li><a href="graph_sparkline.html">Sparkline Charts</a></li> -->
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="dashboard_2.html#"><i class="fa fa-envelope"></i> <span class="nav-label">Service </span><span class="fa arrow"></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li><a href="#">OPD Service</a></li>
+                                <li><a href="form_wizard.html#">Patient Registration</a></li>
+                                
+                             <!--    <li><a href="mail_detail.html">Email view</a></li>
+                                <li><a href="mail_compose.html">Compose email</a></li>
+                                <li><a href="email_template.html">Email templates</a></li> -->
+                            </ul>
+                        </li>
+                       
+                        <li>
+                            <a href="dashboard_2.html#"><i class="fa fa-edit"></i> <span class="nav-label">Access Control</span></a>
+                            <!-- <ul class="nav nav-second-level collapse">
+                                <li><a href="form_basic.html">Basic form</a></li>
+                                <li><a href="form_advanced.html">Advanced Plugins</a></li>
+                                <li><a href="form_wizard.html">Wizard</a></li>
+                                <li><a href="form_file_upload.html">File Upload</a></li>
+                                <li><a href="form_editors.html">Text Editor</a></li>
+                            </ul> -->
+                        </li>
+                        <li>
+                            <a href="dashboard_2.html#"><i class="fa fa-desktop"></i> <span class="nav-label">Morphine Management</span> </a>
+                            <!-- <ul class="nav nav-second-level collapse">
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="profile.html">Profile</a></li>
+                                <li><a href="profile_2.html">Profile v.2</a></li>
+                                <li><a href="contacts_2.html">Contacts v.2</a></li>
+                                <li><a href="projects.html">Projects</a></li>
+                                <li><a href="project_detail.html">Project detail</a></li>
+                                <li><a href="teams_board.html">Teams board</a></li>
+                                <li><a href="social_feed.html">Social feed</a></li>
+                                <li><a href="clients.html">Clients</a></li>
+                                <li><a href="full_height.html">Outlook view</a></li>
+                                <li><a href="vote_list.html">Vote list</a></li>
+                                <li><a href="file_manager.html">File manager</a></li>
+                                <li><a href="calendar.html">Calendar</a></li>
+                                <li><a href="issue_tracker.html">Issue tracker</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="article.html">Article</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="timeline.html">Timeline</a></li>
+                                <li><a href="pin_board.html">Pin board</a></li>
+                            </ul> -->
+                        </li>
+                        
+                    </ul>
+
+                </div>
+    </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="form_wizard.html#"><i class="fa fa-bars"></i> </a>
+            <div role="search" class="navbar-form-custom" action="search_results.html">
+                <div style="padding: 12px">
+                    <h4 style="margin:0px !important;padding: 0px !important;"><b>Registration</b></h4>
+                                            <ul class="breadcrumb">
+
+                                                            <li><a href="http://192.168.0.43/kyau_ums/admin/index">Admin</a></li>
+                                                            <li class="active">Registration</li>
+                                                            </ul>
+                        
+                    </div>
+                </div>
+           <!--  <form role="search" class="navbar-form-custom" action="search_results.html">
+                <div class="form-group">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                </div>
+            </form> -->
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Welcome to  Admin</span>
+                </li>
+                <!-- <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="form_wizard.html#">
+                        <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="img/a7.jpg">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right">46h ago</small>
+                                    <strong>Mike Loreipsum</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="img/a4.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right text-navy">5h ago</small>
+                                    <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                    <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a href="profile.html" class="pull-left">
+                                    <img alt="image" class="img-circle" src="img/profile.jpg">
+                                </a>
+                                <div class="media-body ">
+                                    <small class="pull-right">23h ago</small>
+                                    <strong>Monica Smith</strong> love <strong>Kim Smith</strong>. <br>
+                                    <small class="text-muted">2 days ago at 2:30 am - 11.06.2014</small>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="mailbox.html">
+                                    <i class="fa fa-envelope"></i> <strong>Read All Messages</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
+                <!-- <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="form_wizard.html#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
+
+
+                <li>
+                    <div class="dropdown">
+                      <button class=" dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                  <img alt="image" style="width:20px;" class="img-circle" src="img/admin.png"> 
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                         
+                        <li><a class="pull-left applicant_details" type="button" data-user-id="9" data-toggle="modal" data-target="#applicant_modal"><i class="fa fa-user"></i> Profile</a></li>
+
+                       <li><a title="Change Password" class="openModal" data-action="admin/resetPasswordInsert"><i class="fa fa-key"></i>  Change Password </a></li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                        <a href="login-resorce/index.html">
+                        <i class="fa fa-sign-out"></i> Log out
+                        </a>
+                </li>
+                    </ul>
+                </div>
+                </li>
+            </ul>
+
+        </nav>
+        </div>            
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+            <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                                        <div class="ibox-title">
+                                            <h5>Patient Registration <small>Input data form</small> </h5>
+                                            <div class="ibox-tools">
+                                                <a class="collapse-link">
+                                                    <i class="fa fa-chevron-up"></i>
+                                                </a>
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="index.html#">
+                                                    <i class="fa fa-wrench"></i>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-user">
+                                                    <li><a href="index.html#">Config option 1</a>
+                                                    </li>
+                                                    <li><a href="index.html#">Config option 2</a>
+                                                    </li>
+                                                </ul>
+                                                <a class="close-link">
+                                                    <i class="fa fa-times"></i>
+                                                </a>
+                                            </div>
+                                     </div>
+<div class="ibox-content">
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+            <p>Step 1</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+            <p>Step 2</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+            <p>Step 3</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+            <p>Step 4</p>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-5" type="button" class="btn btn-default btn-circle" disabled="disabled">5</a>
+            <p>Step 5</p>
+        </div>
+    </div>
+</div>
+
+  <form method="get" class="form-horizontal">
+    <div class="setup-content" id="step-1">
+    <div class="row">        
+        <div class="badger-left badger-inverse" data-badger="General Information">
+   			<div class="row">
+              <div class="form-group col-md-4  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">CPC Reg. Date: <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FULL_NAME" id="FULL_NAME" value="10-Jul-2018" class="form-control " placeholder="Full Name" type="text" readonly="readonly">
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              
+              <div class="form-group col-md-4 no-padding">
+                <label for="FULL_NAME_BN" class="col-md-5 control-label">CPC Reg. No :<span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FULL_NAME_BN" id="FULL_NAME_BN" value="" class="form-control keyboardInput" placeholder="CPC Reg. No." vki_attached="true" type="text">
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-info-circle pointer2" data-content="বাংলায় আপনার  নাম লিখুন" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+			  <div class="form-group col-md-4 no-padding">
+                <label for="FATHER_NAME" class="col-md-5 control-label">BSMMU Reg. No.: <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FATHER_NAME" id="FATHER_NAME" class="form-control" value="" placeholder="BSMMU Reg. No." type="text">
+
+
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2 ">
+                  <i class="fa fa-info-circle pointer2" data-content="Enter the name of place where are you born" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              
+          
+              <div class="form-group col-md-4 no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Doctor’s Name: <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  	<select id="BLOOD_GRP" name="BLOOD_GRP" class="form-control valid" aria-invalid="false">                                               
+			          <option value="Dr. Harun-ur-Rashed">Dr. Harun-ur-Rashed</option>
+			          <option selected="" value="Dr. Golam Mostafa">Dr. Golam Mostafa</option>
+			          <option value="Dr. Nur Nobi">Dr. Nur Nobi</option>
+        			</select>                                                                                           
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              <div class="form-group col-md-4 no-padding">
+                <label for="FULL_NAME_BN" class="col-md-5 control-label">Nurse’s Name:  <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  	<select id="BLOOD_GRP" name="BLOOD_GRP" class="form-control valid" aria-invalid="false">                                               
+			          <option value="Fatema Akther">Fatema Akther</option>
+			          <option selected="" value="Naslima Begum">Naslima Begum</option>
+			          <option value="Nazia Khatun">Nazia Khatun</option>
+					</select> 
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-info-circle pointer2" data-content="Write the Nurse's Name" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+			  <div class="form-group col-md-4 no-padding">
+                <label for="FATHER_NAME" class="col-md-5 control-label">Others: <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FATHER_NAME" id="FATHER_NAME" class="form-control" value="" placeholder="Others" type="text">
+
+
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-2">
+                  <i class="fa fa-info-circle pointer2" data-content="Enter the name of place where are you born" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              
+             </div>
+          </div>
+
+<div class="badger-left badger-inverse col-lg-12" data-badger="Referred By">
+ <div class="row">
+ <div class="form-group col-md-12 no-padding">
+                <label for="FULL_NAME" class="col-md-6  control-label">BSMMU (Department) বিএসএমএমইউ (বিভাগ): <span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <select id="u1182_input" class="form-control valid" aria-invalid="false">
+          <option value="Internal Medicine">Internal Medicine</option>
+          <option value="Endocrinology">Endocrinology</option>
+          <option value="Hematology">Hematology</option>
+          <option value="Neurology">Neurology</option>
+          <option value="Paediatrics">Paediatrics</option>
+          <option selected="" value="BSMMU">BSMMU</option>
+        </select>
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              <div class="form-group col-md-12 no-padding">
+                <label for="FULL_NAME_BN" class="col-md-6  control-label">Other Institute (অন্যান্য প্রতিষ্ঠান): :<span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FULL_NAME_BN" id="FULL_NAME_BN" value="" class="form-control keyboardInput" placeholder="Other Institute" vki_attached="true" type="text">
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content="Other Institute" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+			  <div class="form-group col-md-12 no-padding">
+                <label for="FATHER_NAME" class="col-md-6   control-label">Health Care Professional (পেশাদার স্বাস্থ্য সেবা প্রদানকারী):<span class="red">*</span></label>
+
+                <div class="col-md-5">
+                 <select id="u1183_input" class="form-control valid" aria-invalid="false">
+         		 	<option value="Dr Rashid Mostafa">Dr Rashid Mostafa</option>
+          			<option selected="" value="Dr Sirajul Islam">Dr Sirajul Islam</option>
+          			<option value="Dr Jamil Hassan">Dr Jamil Hassan</option>
+        		</select>
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content="Enter the name of place where are you born" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+              <div class="form-group col-md-12 no-padding">
+                <label for="FATHER_NAME" class="col-md-6  control-label">Self Attended (নিজ দায়িত্বে):<span class="red">*</span></label>
+
+                <div class="col-md-5">
+                  <input name="FATHER_NAME" id="FATHER_NAME" class="form-control" value="" placeholder="Self Attended" type="text">
+
+
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content="Enter the Self Attended" data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+ </div>
+</div>
+
+<div class="badger-left col-lg-8" data-badger="Personal Information">
+ <div class="row">
+ 	
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Name (নাম): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Full Name" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+           
+          
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Father's Name (বাবার নাম): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Father's Name" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+           
+         
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Mother's Name (মায়ের নাম): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Mother's Name" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+           
+    
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Present Address (বর্তমান ঠিকানা): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Present Address" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+       
+           
+          
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">District (জেলা): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                 <select id="u1264_input" class="form-control">
+          <option value="Dhaka">Dhaka</option>
+          <option value="Comilla">Comilla</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Bogura">Bogura</option>
+          <option value="Shylet">Shylet</option>
+          <option selected="" value="Chittagong">Chittagong</option>
+        </select>
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+         
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Permanent Address (স্থায়ী ঠিকানা): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Permanent Address" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+         
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">District (জেলা): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <select id="u1264_input" class="form-control">
+          <option value="Dhaka">Dhaka</option>
+          <option value="Comilla">Comilla</option>
+          <option value="Rangpur">Rangpur</option>
+          <option value="Bogura">Bogura</option>
+          <option value="Shylet">Shylet</option>
+          <option selected="" value="Chittagong">Chittagong</option>
+        </select>
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+      
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Email ID (ই-মেইল): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Email ID" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+        
+           
+        
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-4 control-label">Diagnosis (elaborate) নির্ণীত রোগ (বিস্তারিত): <span class="red">*</span></label>
+
+                <div class="col-md-7">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Diagnosis (elaborate)" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+ </div>
+</div> 
+<div class="badger-left col-lg-4" data-badger="Personal Information">
+ <div class="row">
+ 		
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Age (বয়স): <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Age" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+      
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label"> Sex (লিঙ্গ): <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                 <select id="u1201_input" class="form-control">
+          <option selected="" value="Male (পুরুষ)      ">Male (পুরুষ)&nbsp; &nbsp; &nbsp; </option>
+          <option value="Female (মহিলা)">Female (মহিলা)</option>
+          <option value="Unisex (তৃতীয় লিঙ্গ)     ">Unisex (তৃতীয় লিঙ্গ)&nbsp; &nbsp;&nbsp; </option>
+        </select>
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1 ">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+      
+           
+         
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label"> Occupation (পেশা): <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Occupation" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="right" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+        
+           
+        
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Religion (ধর্ম): <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                 <select id="u1213_input" class="form-control">
+          <option value="Islam (ইসলাম)     ">Islam (ইসলাম)&nbsp; &nbsp;&nbsp; </option>
+          <option value="Hinduism (হিন্দু)">Hinduism (হিন্দু)</option>
+          <option value="Christianity (খ্রিষ্টান)     ">Christianity (খ্রিষ্টান)&nbsp; &nbsp;&nbsp; </option>
+          <option value="Buddhism (বৌদ্ধ)">Buddhism (বৌদ্ধ)</option>
+          <option value="Other (অন্যান্য) ">Other (অন্যান্য) </option>
+        </select> 
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+           
+       
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Marital Status (বৈবাহিক অবস্থা): <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                 <select id="u1222_input" class="form-control">
+    
+          <option value="Marital Status (বৈবাহিক অবস্থা)">Marital Status (বৈবাহিক অবস্থা)</option>
+          <option value="Unmarried (অবিবাহিত)     ">Unmarried (অবিবাহিত)&nbsp; &nbsp;&nbsp; </option>
+          <option selected="" value="Married (বিবাহিত)">Married (বিবাহিত)</option>
+          <option value="Widowed/Widower (বিধবা/বিপত্নীক)     ">Widowed/Widower (বিধবা/বিপত্নীক)&nbsp; &nbsp;&nbsp; </option>
+          <option value="Separated (আলাদা থাকা)">Separated (আলাদা থাকা)</option>
+          <option value="Divorced (তালাকপ্রাপ্ত)">Divorced (তালাকপ্রাপ্ত)</option>
+        </select> 
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+      
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Phone:  <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Phone" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+     
+           
+       
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Patient: <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Patient" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+      
+           
+       
+              <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Contact Person: <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Contact Person" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+         
+           
+          
+              <div class="form-group no-padding">
+                <label for="FULL_NAME" class="col-md-5 control-label">Blood Group: <span class="red">*</span></label>
+
+                <div class="col-md-6">
+                  <input name="FULL_NAME" id="FULL_NAME" value="" class="form-control " placeholder="Blood Group" type="text" >
+                  <span class="red"></span>
+                </div>
+                <div class="col-md-1">
+                  <i class="fa fa-info-circle pointer2" data-content=" " data-placement="left" data-toggle="popover" data-container="body" data-original-title="Help" title=""></i>
+                </div>
+              </div>
+          
+ </div>
+</div> 
+
+        
+        <button class="btn btn-outline btn-primary nextBtn dim pull-right" type="button" >Next</button>
+	
+</div>
+  
+                
+            </div>
+     <div class="setup-content" id="step-2">
+     <div class="row">        
+        <div class="badger-left badger-inverse" data-badger="Patient Present Status (রোগীর বর্তমান অবস্থা)">
+   			
+        <div class="row">
+         
+                <div class="col-md-3">              
+                     <div class="checkbox checkbox-success">
+                          <input id="checkbox1" type="checkbox">
+                          <label for="checkbox1">
+                              Anaemia (রক্তস্বল্পতা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox2" type="checkbox">
+                          <label for="checkbox2">
+                              Ascites (পেটে পানি জমা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox3" type="checkbox">
+                          <label for="checkbox3">
+                             Bedsore (শয্যাক্ষত)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox4" type="checkbox">
+                          <label for="checkbox4">
+                             Breathlessness (শ্বাসকষ্ট)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox5" type="checkbox">
+                          <label for="checkbox5">
+                             Cachexia (হাড্ডিশার)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox6" type="checkbox">
+                          <label for="checkbox6">
+                            Constipation (কোষ্ঠকাঠিন্য)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox7" type="checkbox">
+                          <label for="checkbox7">
+                              Cough (কাশি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox8" type="checkbox">
+                          <label for="checkbox8">
+                              Diarrhoea (ডায়রিয়া)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox9" type="checkbox">
+                          <label for="checkbox9"> 
+							Difficulty in swallowing (গিলতে অসুবিধা)
+                          </label>
+                      </div>                                        
+                </div>
+                
+                  <div class="col-md-3">              
+                     <div class="checkbox checkbox-success">
+                          <input id="checkbox10" type="checkbox">
+                          <label for="checkbox10">
+                              Drowsiness (ঝিমানো)
+                          </label>
+                      </div>
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox11" type="checkbox">
+                          <label for="checkbox11">
+                             Dry Mouth (মুখ শুকিয়ে যাওয়া)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox12" type="checkbox">
+                          <label for="checkbox12">
+                             DVT (ডিভিটি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox13" type="checkbox">
+                          <label for="checkbox13">
+                            Feeding Tube (খাবারনল)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox14" type="checkbox">
+                          <label for="checkbox14">
+                              Fever (জ্বর)
+                          </label>                       
+                          
+                      </div> 
+                      <div id="fever" class="from-control" style="display:none">
+        <select id="u1345_input">
+          <option value="Neurological Deficit">Neurological Deficit</option>
+          <option value="Facial Palsy">Facial Palsy</option>
+          <option value="Monoplegia">Monoplegia</option>
+          <option value="Hemiplegia">Hemiplegia</option>
+          <option value="Paraplegia">Paraplegia</option>
+          <option value="Quadriplegia">Quadriplegia</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox15" type="checkbox">
+                          <label for="checkbox15">
+                              Haematemesis (রক্ত বমি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox16" type="checkbox">
+                          <label for="checkbox16">
+                              Haemoptysis (রক্ত কাশি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox17" type="checkbox">
+                          <label for="checkbox17">
+                              Haemorrhage (রক্ত ক্ষরন)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox18" type="checkbox">
+                          <label for="checkbox18">
+                              Hair loss (চুল পড়া)
+                          </label>
+                      </div>                                         
+                </div>
+                  <div class="col-md-3">              
+                     <div class="checkbox checkbox-success">
+                          <input id="checkbox19" type="checkbox">
+                          <label for="checkbox19">
+                              Heart Burn (বুক জ্বালাপোড়া)
+                          </label>
+                      </div>   
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox20" type="checkbox">
+                          <label for="checkbox20">
+                              Hiccup (হেঁচকি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox21" type="checkbox">
+                          <label for="checkbox21">
+                              Indigestion (বদহজম)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox22" type="checkbox">
+                          <label for="checkbox22">
+                              Itching (চুলকানি)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox23" type="checkbox">
+                          <label for="checkbox23">
+                              Jaundice (জন্ডিস)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox24" type="checkbox">
+                          <label for="checkbox24">
+                              Loss of appetite (ক্ষুধা মন্দা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox25" type="checkbox">
+                          <label for="checkbox25">
+                             Malaena (কালো রক্ত পায়খানা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox26" type="checkbox">
+                          <label for="checkbox26">
+                              Malodour (site) 
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox27" type="checkbox">
+                          <label for="checkbox27">
+                              Mouth Sore 
+                          </label>
+                      </div>                                      
+                </div>
+                <div class="col-md-3">              
+                     <div class="checkbox checkbox-success">
+                          <input id="checkbox28" type="checkbox">
+                          <label for="checkbox28">
+                              Nausea (বমি ভাব)
+                          </label>
+                      </div>
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox29" type="checkbox">
+                          <label for="checkbox29">
+                              Oedema (পানি জমা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox30" type="checkbox">
+                          <label for="checkbox30">
+                              Pain (ব্যথা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox31" type="checkbox">
+                          <label for="checkbox31">
+                              Restlessness (অস্থিরতা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox32" type="checkbox">
+                          <label for="checkbox32">
+                              Sleeplessness (অনিদ্রা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox33" type="checkbox">
+                          <label for="checkbox33">
+                              Ulcer (ক্ষত)
+                          </label>
+                      </div> 
+                       <div id="ulcer" class="from-control" style="display:none">
+                       <input type="text" class="from-control"/>
+                       </div>
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox34" type="checkbox">
+                          <label for="checkbox34">
+                              Urinary Catheter (মূত্রনল)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox35" type="checkbox">
+                          <label for="checkbox35">
+                              Vertigo (মাথা ঘোরা)
+                          </label>
+                      </div> 
+                      <div class="checkbox checkbox-success">
+                          <input id="checkbox36" type="checkbox">
+                          <label for="checkbox36">
+                              Vomiting (বমি)
+                          </label>
+                      </div>                                         
+                </div>
+                 <div class="col-md-12">
+                 
+                 <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-2 control-label">Lymphedema : </label>
+
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="checkboxLympU" type="checkbox">
+                          <label for="checkboxLympU">
+                             Upper Limb
+                          </label>
+                      </div>  
+                </div>
+                 <div class="col-md-3" id="radioUdiv" style="display: none">
+                  <div class="radio radio-inline">
+                        <input type="radio" id="inlineRadio1" value="option1" name="upperLimb" >
+                        <label for="inlineRadio1"> L </label>
+                   </div>
+                   <div class="radio radio-inline">
+                         <input type="radio" id="inlineRadio2" value="option2" name="upperLimb">
+                         <label for="inlineRadio2"> R </label>
+                    </div>
+                    <div class="radio radio-inline">
+                         <input type="radio" id="inlineRadio3" value="option3" name="upperLimb" >
+                         <label for="inlineRadio3"> B </label>
+                    </div>
+                </div>
+                  <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="checkboxLympL" type="checkbox">
+                          <label for="checkboxLympL">
+                              Lower Limb
+                          </label>
+                      </div>  
+                </div>
+               <div class="col-md-3" id="radioLdiv" style="display: none">
+                  <div class="radio radio-inline">
+                        <input type="radio" id="inlineRadio4" value="option4" name="lowerLimb" >
+                        <label for="inlineRadio4"> L </label>
+                   </div>
+                   <div class="radio radio-inline">
+                         <input type="radio" id="inlineRadio5" value="option5" name="lowerLimb">
+                         <label for="inlineRadio5"> R </label>
+                    </div>
+                    <div class="radio radio-inline">
+                         <input type="radio" id="inlineRadio6" value="option6" name="lowerLimb" >
+                         <label for="inlineRadio6"> B </label>
+                    </div>
+                </div>
+              </div>
+                  </div>
+              <div class="col-md-12">                 
+                 <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-2 control-label">Stoma (কৃত্রিমপথ): </label>
+
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="colostomyChk" type="checkbox">
+                          <label for="colostomyChk">
+                             Colostomy
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="tracheostomyChk" type="checkbox">
+                          <label for="tracheostomyChk">
+                             Tracheostomy
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="ileostomyChk" type="checkbox">
+                          <label for="ileostomyChk">
+                             Ileostomy
+						 </label>
+                      </div>  
+                </div>
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="nephrostomyChk" type="checkbox">
+                          <label for="nephrostomyChk">
+                             Nephrostomy
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="ureterostomyChk" type="checkbox">
+                          <label for="ureterostomyChk">
+                             Ureterostomy
+                          </label>
+                      </div>  
+                </div>
+                </div>
+              </div>
+                  
+                  <div class="col-md-12">
+                 
+                 <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-2 control-label">Swelling (ফোলা):</label>
+
+                <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="swellingCheckboxLympU" type="checkbox">
+                          <label for="swellingCheckboxLympU">
+                             Upper Limb
+                          </label>
+                      </div>  
+                </div>
+                 <div class="col-md-3" id="swellingRadioUdiv" style="display: none">
+                  <div class="radio radio-inline">
+                        <input type="radio" id="swellingUpperLimb1" value="option1" name="swellingUpperLimb" >
+                        <label for="swellingUpperLimb1"> L </label>
+                   </div>
+                   <div class="radio radio-inline">
+                         <input type="radio" id="swellingUpperLimb2" value="option2" name="swellingUpperLimb">
+                         <label for="swellingUpperLimb2"> R </label>
+                    </div>
+                    <div class="radio radio-inline">
+                         <input type="radio" id="swellingUpperLimb3" value="option3" name="swellingUpperLimb" >
+                         <label for="swellingUpperLimb3"> B </label>
+                    </div>
+                </div>
+                  <div class="col-md-2">
+                  <div class="checkbox checkbox-success">
+                          <input id="swellingCheckboxLympL" type="checkbox">
+                          <label for="swellingCheckboxLympL">
+                              Lower Limb
+                          </label>
+                      </div>  
+                </div>
+               <div class="col-md-3" id="swellingRadioLdiv" style="display: none">
+                  <div class="radio radio-inline">
+                        <input type="radio" id="swellingLowerLimb4" value="option4" name="swellingLowerLimb" >
+                        <label for="swellingLowerLimb4"> L </label>
+                   </div>
+                   <div class="radio radio-inline">
+                         <input type="radio" id="swellingLowerLimb5" value="option5" name="swellingLowerLimb">
+                         <label for="swellingLowerLimb5"> R </label>
+                    </div>
+                    <div class="radio radio-inline">
+                         <input type="radio" id="swellingLowerLimb6" value="option6" name="swellingLowerLimb" >
+                         <label for="swellingLowerLimb6"> B </label>
+                    </div>
+                </div>
+              </div>
+                  </div>
+                  
+                  
+                  <div class="col-md-12">                 
+                 <div class="form-group  no-padding">
+                <label for="FULL_NAME" class="col-md-3 control-label">Urinary Complaints (প্রস্রাবের সমস্যা): </label>
+
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="frequencyChk" type="checkbox">
+                          <label for="frequencyChk">
+                             Frequency(বার বার হয়)
+                           </label>
+                      </div>  
+                </div>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="urgencyChk" type="checkbox">
+                          <label for="urgencyChk">
+                             Urgency(ধরে রাখা যায় না)
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="incontinenceChk" type="checkbox">
+                          <label for="incontinenceChk">
+                             Incontinence(ঝড়তে থাকা)
+						 </label>
+                      </div>  
+                </div>
+                <label for="FULL_NAME" class="col-md-3 control-label"> </label>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="dysuriaChk" type="checkbox">
+                          <label for="dysuriaChk">
+                            Dysuria(ব্যথা, জ্বালা করে)
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="hesitancyChk" type="checkbox">
+                          <label for="hesitancyChk">
+                             Hesitancy(মনে হয় হবে, হয় না) 
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="retentionChk" type="checkbox">
+                          <label for="retentionChk">
+                             Retention(হঠাৎ বন্ধ হয়ে যায়)
+                          </label>
+                      </div>  
+                </div>
+                <label for="FULL_NAME" class="col-md-3 control-label"> </label>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="haematuriaChk" type="checkbox">
+                          <label for="haematuriaChk">
+                            Haematuria(প্রশাবে রক্ত যায়) 
+                          </label>
+                      </div>  
+                </div>
+                <div class="col-md-3">
+                  <div class="checkbox checkbox-success">
+                          <input id="othersChk" type="checkbox">
+                          <label for="othersChk">
+                             Others(অন্যান্য)
+                          </label>
+                      </div>  
+                </div>
+               
+                 <div class="col-md-3" id="othersTextDiv" style="display: none">
+                 <textarea rows="2" cols="20" class="from-control"></textarea>
+                </div>
+                </div>
+              </div>
+                <div class="col-md-12"> 
+              <label for="FULL_NAME" class="col-md-3 control-label">Others (অন্যান্য): </label>
+                <div class="col-md-9">
+                 <textarea rows="2" cols="90" class="from-control"></textarea>
+                </div>
+                </div>
+            <button class="btn btn-outline btn-primary nextBtn dim pull-right" type="button" >Next</button>
+        </div>
+       
+        </div>
+    </div>
+    </div>
+     <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+        <div class="col-md-6 col-xs-12">            
+        <div class="badger-left badger-inverse white-bg" data-badger="wong-Baker Pain Rating Scale for Children (উৎ-বেকার ব্যথা নির্ণয় স্কেল -শিশু:)">
+<div class="row"> 
+<!-- <small class="label label-info">Children(শিশু)</small> -->
+
+		    <div class="cc-selector ">
+		     <div class="col-md-2 cc-selector ">
+		        <input id="noPain" type="radio" name="credit-card" value="0" />
+		        0
+		        <label class="drinkcard-cc noPain" for="noPain"></label>
+		       </div>
+		      <div class="col-md-2 cc-selector">
+		        <input id="mildPain" type="radio" name="credit-card" value="2" />
+		        2
+		        <label class="drinkcard-cc mildPain" for="mildPain"></label>
+		        </div>
+		        <div class="col-md-2 cc-selector">
+		        <input id="uncomfortable" type="radio" name="credit-card" value="4" />
+		        4
+		        <label class="drinkcard-cc uncomfortable"for="uncomfortable"></label>
+		        </div>
+		        <div class="col-md-2 cc-selector">
+		        <input id="distressing" type="radio" name="credit-card" value="6" />
+		        6
+		        <label class="drinkcard-cc distressing"for="distressing"></label>
+		        </div>
+		        <div class="col-md-2 cc-selector">
+		        <input id="intense" type="radio" name="credit-card" value="8" />
+		        8
+		        <label class="drinkcard-cc intense"for="intense"></label>
+		        </div>
+		        <div class="col-md-2 cc-selector">
+		        <input id="excruciating" type="radio" name="credit-card" value="10" />
+		        10
+		        <label class="drinkcard-cc excruciating"for="excruciating"></label>
+		        </div>
+		    </div>
+   
+      </div>
+        </div>  
+        </div>
+              <div class="col-md-6 col-xs-12">            
+        <div class="badger-left badger-inverse white-bg" data-badger="Visual Analogue Scale for Adult (ভিজুয়াল এ্যানালগ স্কেল  - প্রাপ্তবয়স্ক ">
+<div class="row"> 
+
+		    <div class="col-md-12 ">
+		     <div class='ruler'>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ <div class='mm'></div>
+ </div>
+ <div class='cm'></div>
+</div>
+		     
+		      <div class="col-md-2 no-padding">
+		      <div class="radio radio-success radio-inline">
+                         <input type="radio" id="noPainRadio" value="0" name="pain" >
+                         <label for="noPainRadio">No pain </label>
+                    </div>
+                 
+                </div>
+                <div class="col-md-3 no-padding">
+		      <div class="radio radio-success radio-inline">
+                         <input type="radio" id="mildPainRadio" value="2" name="pain" >
+                         <label for="mildPainRadio">Mild pain </label>
+                    </div>
+                 
+                </div>
+                <div class="col-md-3 no-padding">
+             
+		      <div class="radio radio-success radio-inline">
+                         <input type="radio" id="uncomfortableRadio" value="2" name="pain" >
+                         <label for="uncomfortableRadio">uncomfortable </label>
+                    </div>
+                 
+                </div>
+                <div class="col-md-2 no-padding">
+               
+		      <div class="radio radio-success radio-inline">
+                         <input type="radio" id="intenseRadio" value="2" name="pain" >
+                         <label for="intenseRadio"> intense</label>
+                    </div>
+                 
+                </div>
+                <div class="col-md-2 no-padding">
+		      <div class="radio radio-success radio-inline">
+                         <input type="radio" id="excruciatingRadio" value="2" name="pain" >
+                         <label for="excruciatingRadio">excruciating </label>
+                    </div>
+                 
+                </div>
+		    </div>
+   
+      </div>
+        </div>  
+        </div>
+        </div>
+        <div class="col-md-12 container">
+        <table id="myTable" class="table table-bordered order-list">
+    <thead>
+        <tr>
+            <td>Location of pain (ব্যথার স্থান)</td>
+            <td>Sup/Deep ( উপরিভাগের ব্যথা  /গভীরের  ব্যথা)</td>
+            <td>Continuous / Intermittent       (চলমান /থেমে থেমে)</td>
+            <td>Duration (কত দিন থেকে)</td>
+            <td>Character (ব্যথার ধরণ)</td>
+            <td>Aggravated by (কি করলে বাড়ে)</td>
+            <td>Relieved by   (কি করলে কমে)</td>
+            <td>Affect of  sleep (ঘুমের অসুবিধা)</td>
+            <td>Functional Disability (কাজকর্মে অসুবিধা)</td>
+           	<td> <input type="button" class="btn btn-primary btn-outline" id="addrow" value="Add Row" /></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td >
+                <input type="text" name="phone" class="form-control" />
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td >
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td>
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td>
+                <input type="text" name="phone"  class="form-control"/>
+            </td>
+            <td ><a class="deleteRow"></a>
+
+            </td>
+        </tr>
+    </tbody>
+    <!-- <tfoot>
+        <tr>
+            <td colspan="5" style="text-align: left;">
+                <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </tfoot> -->
+</table>
+        </div>
+         <button class="btn btn-outline btn-primary nextBtn dim pull-right" type="button" >Next</button>
+    </div>
+     <div class="row setup-content" id="step-4">
+        <div class="col-xs-12">
+          <div class="col-xs-12">        
+  
+                <div class="form-group">
+                    <label class="control-label">Company Name</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Name" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Company Address</label>
+                    <input maxlength="200" type="text" required="required" class="form-control" placeholder="Enter Company Address"  />
+                </div>
+                <button class="btn btn-outline btn-primary nextBtn dim pull-right" type="button" >Next</button>
+            </div>
+      
+        </div>
+    </div>
+   	 <div class="row setup-content" id="step-5">
+   	     <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3> Step 5</h3>
+                <button class="btn btn-outline btn-info dim pull-right" type="submit">Finish!</button>
+            </div>
+        </div>
+        </div>
+    </form>
+    </div>
+
+    </div>
+
+</div>
+</div>
+</div>
+
+<div class="footer">
+            <div class="pull-right">
+               <!--  10GB of <strong>250GB</strong> Free. -->
+            </div>
+            <div>
+                <strong>Copyright</strong> ATI Limited &copy; 2018-2019
+            </div>
+        </div>
+            </div>
+            </div>
+        
+
+
+
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- Steps -->
+<!--     <script src="js/plugins/staps/jquery.steps.min.js"></script> -->
+
+    <!-- Jquery Validate -->
+  <!--   <script src="js/plugins/validate/jquery.validate.min.js"></script> -->
+
+
+    <script>
+       /*  $(document).ready(function(){
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex)
+                {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex)
+                    {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18)
+                    {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex)
+                    {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex)
+                {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18)
+                    {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3)
+                    {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex)
+                {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                        errorPlacement: function (error, element)
+                        {
+                            element.before(error);
+                        },
+                        rules: {
+                            confirm: {
+                                equalTo: "#password"
+                            }
+                        }
+                    });
+       }); */
+        
+        
+        $(document).ready(function () {
+
+            var navListItems = $('div.setup-panel div a'),
+                    allWells = $('.setup-content'),
+                    allNextBtn = $('.nextBtn');
+
+            allWells.hide();
+
+            navListItems.click(function (e) {
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
+                        $item = $(this);
+
+                if (!$item.hasClass('disabled')) {
+                    navListItems.removeClass('btn-primary').addClass('btn-default');
+                    $item.addClass('btn-primary');
+                    allWells.hide();
+                    $target.show();
+                    $target.find('input:eq(0)').focus();
+                }
+            });
+
+            allNextBtn.click(function(){
+                var curStep = $(this).closest(".setup-content"),
+                    curStepBtn = curStep.attr("id"),
+                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                    curInputs = curStep.find("input[type='text'],input[type='url']"),
+                    isValid = true;
+
+                $(".form-group").removeClass("has-error");
+                for(var i=0; i<curInputs.length; i++){
+                    if (!curInputs[i].validity.valid){
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    }
+                }
+
+                if (isValid)
+                    nextStepWizard.removeAttr('disabled').trigger('click');
+            });
+
+            $('div.setup-panel div a.btn-primary').trigger('click');
+            
+            $('#checkbox14').click(function(){
+                this.checked?$('#fever').show(1000):$('#fever').hide(1000);
+            });
+            
+            $('#checkbox33').click(function(){
+                this.checked?$('#ulcer').show(1000):$('#ulcer').hide(1000);
+            });
+            
+            
+            $('#checkboxLympU').click(function(){
+                this.checked?$('#radioUdiv').show(1000):$('#radioUdiv').hide(1000);
+            });
+            
+            $('#checkboxLympL').click(function(){
+                this.checked?$('#radioLdiv').show(1000):$('#radioLdiv').hide(1000);
+            });
+            
+            
+            
+            $('#swellingCheckboxLympU').click(function(){
+                this.checked?$('#swellingRadioUdiv').show(1000):$('#swellingRadioUdiv').hide(1000);
+            });
+            
+            $('#swellingCheckboxLympL').click(function(){
+                this.checked?$('#swellingRadioLdiv').show(1000):$('#swellingRadioLdiv').hide(1000);
+            });
+            
+            $('#othersChk').click(function(){
+                this.checked?$('#othersTextDiv').show(1000):$('#othersTextDiv').hide(1000);
+            });
+            
+            
+            
+            var counter = 0;
+
+            $("#addrow").on("click", function () {
+                var newRow = $("<tr>");
+                var cols = "";
+
+                cols += '<td><input type="text" class="form-control" name="name' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="mail' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+                cols += '<td><input type="text" class="form-control" name="phone' + counter + '"/></td>';
+
+                cols += '<td><input type="button" class="ibtnDel btn btn-danger btn-circle btn-outline" data-toggle="tooltip" data-placement="top" data-original-title="Delete this row"  value="D"></td>';
+                newRow.append(cols);
+                $("table.order-list").append(newRow);
+                counter++;
+            });
+
+
+
+            $("table.order-list").on("click", ".ibtnDel", function (event) {
+                $(this).closest("tr").remove();       
+                counter -= 1
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+             
+
+
+         
